@@ -1,7 +1,7 @@
 module Oki
     class Director
        def initialize
-          @bg_image = Image.load('images/shimane4/png')
+          @bg_image = Image.load('images/shimane4.png')
           @player = Image.load('images/man.png')
           @time_count = 250
        end
@@ -21,3 +21,5 @@ module Oki
                end
             end 
        end
+      end
+end
