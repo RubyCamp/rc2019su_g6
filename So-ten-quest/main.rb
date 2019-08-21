@@ -1,16 +1,16 @@
 require 'dxruby'
 
-require_relative 'map'
-require_relative 'maps/load_maps'
+require_relative 'scene'
+require_relative 'scenes/load_scenes'
 
 Window.caption = "RubyCamp"
 Window.width   = 800
 Window.height  = 600
 
-Map.move_to(:north_east)#一番初めに表示
+Scene.move_to(:north_west)#一番初めに表示、オープニング用
 
 Window.loop do
   break if Input.keyPush?(K_ESCAPE)
 
-  Map.play
+  Scene.play
 end

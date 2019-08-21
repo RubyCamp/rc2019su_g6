@@ -25,7 +25,7 @@ module South_west
         @player.y = 488
       end
       if @player.y <= 0 #画面の上端に来たら
-       Map.move_to(:north_west)#マップ移動
+       Scene.move_to(:north_west)#マップ移動
       end
 
 	  #point2にぶつかったら

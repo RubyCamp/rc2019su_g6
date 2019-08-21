@@ -17,13 +17,13 @@ module North_west
 	  @player.y  = @player.y+Input.y
 
 	  if @player.x>748 #画面の右端に来たら
-        Map.move_to(:north_east)#マップ移動
+        Scene.move_to(:north_east)#マップ移動
       end
       if @player.x < 0#画面の左端に来たら
         @player.x = 0
       end
       if @player.y>488 #画面の下端に来たら
-        Map.move_to(:south_west)
+        Scene.move_to(:south_west)
       end
       if @player.y < 0 #画面の上端に来たら
        @player.y = 0

@@ -24,7 +24,7 @@ module North_east
         @player.x = 748
       end
       if @player.x < 0#画面の左端に来たら
-        Map.move_to(:north_west)#マップ移動
+        Scene.move_to(:north_west)#マップ移動
       end
       if @player.y>488 #画面の下端に来たら
         @player.y = 488
