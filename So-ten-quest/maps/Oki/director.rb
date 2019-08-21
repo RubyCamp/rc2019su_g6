@@ -1,5 +1,5 @@
 module Oki
-    class oki < map
+    class Director
        def initialize
           @bg_image = Image.load('images/shimane4/png')
           @player = Image.load('images/man.png')
