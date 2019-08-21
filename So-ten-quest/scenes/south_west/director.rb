@@ -3,8 +3,9 @@ module South_west
     def initialize
       @bg_img = Image.load("images/shimane3.png")
       @player_img = Image.load("images/man.png")
+	  @iwami_img = Image.load("images/iwami_icon.png")#エラー
 	  @player = Sprite.new(0,0,@player_img)
-	  @point6 = Sprite.new(245,39,@player_img)
+	  @iwami = Sprite.new(245,39,@iwami_img)
 
 	  @font = Font.new(32) #デバッグ用
     end
@@ -28,8 +29,8 @@ module South_west
        Scene.move_to(:north_west)#マップ移動
       end
 
-	  #point2にぶつかったら
-	  if @player === @point6
+	  #@iwamiにぶつかったら+入ったか確認する変数が1なら
+	  if @player === @iwami
 	    exit#クイズへ
 	  end
 
@@ -37,7 +38,7 @@ module South_west
       Window.draw(0, 0, @bg_img)
 
 	  #描画
-	  @point6.draw
+	  @iwami.draw
 	  @player.draw
 
 	  
