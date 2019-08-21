@@ -1,15 +1,18 @@
 module North_east
   class Director
     def initialize
-      @bg_img = Image.load("images/shimane2.png")
-      @player_img = Image.load("images/man.png")
-	  @matsue_img = Image.load("icons/matue_icon.png")
-	  @miho_img = Image.load("icons/miho_icon.png")
-	  @adati_img = Image.load("icons/monariza_icom.png")
-	  @player = Sprite.new(0,0,@player_img)
-	  @matsue = Sprite.new(350,287,@matsue_img)
-	  @miho = Sprite.new(680,100,@miho_img)
-	  @adati = Sprite.new(680,480,@adati_img)
+      #背景画像読み込み
+	  @bg_img = Image.load("images/shimane2.png")
+
+	  #player画像読み込み
+	  @player = Sprite.new(0,0,Image.load("images/man.png"))
+
+	  #マップ上のアイコン読み込み
+	  @matsue = Sprite.new(350,287,Image.load("icons/matue_icon.png"))
+	  @miho = Sprite.new(680,100,Image.load("icons/miho_icon.png"))
+	  @adati = Sprite.new(680,480,Image.load("icons/monariza_icom.png"))
+	  @yome = Sprite.new(222,371,Image.load("icons/yome_icom.png"))
+
 	  @font = Font.new(32) #デバッグ用
     end
 
@@ -20,6 +23,7 @@ module North_east
 	  @player.y  = @player.y+Input.y
 
 
+	  #画面端に来た時の処理
 	  if @player.x>748 #画面の右端に来たら
         @player.x = 748
       end
@@ -33,6 +37,8 @@ module North_east
        @player.y = 0
       end
 
+
+	  #衝突判定
 	  #@matsueにぶつかったら
 	  if @player === @matsue
 	    exit#クイズへ
@@ -45,6 +51,11 @@ module North_east
 	  if @player === @adati
 	    exit#クイズへ
 	  end
+	  #@yomeにぶつかったら
+	  if @player === @yome
+	    exit#クイズへ
+	  end
+
 
 	  #背景描画
       Window.draw(0, 0, @bg_img)
@@ -53,10 +64,15 @@ module North_east
 	  @miho.draw
 	  @adati.draw
 	  @matsue.draw
+	  @yome.draw
 	  @player.draw
 
-	  
-	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#デバッグ用
+	  #デバッグ用
+	  if Input.key_push?(K_X) then
+        Scene.move_to(:oki) #隠岐へ移動
+      end
+	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)
+
 
     end
   end

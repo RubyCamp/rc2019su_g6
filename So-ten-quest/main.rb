@@ -7,10 +7,10 @@ Window.caption = "RubyCamp"
 Window.width   = 800
 Window.height  = 600
 
-Scene.move_to(:north_west)#一番初めに表示、オープニング用
+Scene.move_to(:opening)#オープニングへ
 
 Window.loop do
-  break if Input.keyPush?(K_ESCAPE)
+  break if Input.keyPush?(K_ESCAPE)#escapeが押されたら終了
 
   Scene.play
 end
