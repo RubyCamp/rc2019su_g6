@@ -2,6 +2,7 @@
 require_relative 'north_west/director'
 require_relative 'north_east/director'
 require_relative 'south_west/director'
+require_relative 'oki/director'
 
 Map.add(North_west::Director.new,  :north_west)
 Map.add(North_east::Director.new,  :north_east)
