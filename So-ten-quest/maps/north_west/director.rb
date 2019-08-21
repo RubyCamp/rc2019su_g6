@@ -2,34 +2,50 @@ module North_west
   class Director
     def initialize
       @bg_img = Image.load("images/shimane1.png")
+	  @home_img =  Image.load("icons/home_icon.png")
       @player_img = Image.load("images/man.png")
-      @px =470 #要変更
-      @py = 150#要変更
+	  @izumo_img = Image.load("icons/izumo_icon.png")
+      @player = Sprite.new(682,162,@player_img)
+	  @izumo = Sprite.new(473,293,@izumo_img)
+	  @font = Font.new(32) #デバッグ用
     end
 
     def play
-      @px = @px + Input.x
-      @py = @py + Input.y
+      
+	  #キーボードの上下左右で移動
+	  @player.x  = @player.x+Input.x
+	  @player.y  = @player.y+Input.y
 
-      if @px>610 #画面の右端に来たら
-        Map.move_to(:north_east)
+	  if @player.x>748 #画面の右端に来たら
+        Map.move_to(:north_east)#マップ移動
       end
-
-      if @py>331 #画面の下端に来たら
+      if @player.x < 0#画面の左端に来たら
+        @player.x = 0
+      end
+      if @player.y>488 #画面の下端に来たら
         Map.move_to(:south_west)
       end
-
-      if @px < -100 #画面の左端に来たら
-        @px = -100
+      if @player.y < 0 #画面の上端に来たら
+       @player.y = 0
       end
 
-      if @py < -180 #画面の上端に来たら
-       py = -180
-      end
+	  #point2にぶつかったら
+	  if @player === @izumo
+	    exit#クイズへ
+	  end
 
+	  #背景描画
       Window.draw(0, 0, @bg_img)
+
+	  #描画
+	   Window.draw(682, 220, @home_img)
+
+	  @izumo.draw
+	  @player.draw
+
+	  
+	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#デバッグ用
       
-      Window.draw_scale(@px, @py, @player_img, 0.2, 0.2) 
     end
   end
 end

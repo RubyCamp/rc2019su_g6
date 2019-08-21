@@ -7,7 +7,7 @@ Window.caption = "RubyCamp"
 Window.width   = 800
 Window.height  = 600
 
-Map.move_to(:north_west)#ˆê”Ô‰‚ß‚É•\¦
+Map.move_to(:north_east)#ˆê”Ô‰‚ß‚É•\¦
 
 Window.loop do
   break if Input.keyPush?(K_ESCAPE)

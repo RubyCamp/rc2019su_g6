@@ -3,33 +3,45 @@ module South_west
     def initialize
       @bg_img = Image.load("images/shimane3.png")
       @player_img = Image.load("images/man.png")
-      @px =470#要変更
-      @py = 150#要変更
+	  @player = Sprite.new(0,0,@player_img)
+	  @point6 = Sprite.new(245,39,@player_img)
+
+	  @font = Font.new(32) #デバッグ用
     end
 
     def play
-      @px = @px + Input.x
-      @py = @py + Input.y
-
-      if @px>682 #画面の右端に来たら
-          @px = 682
-      end
-
-      if @py>331 #画面の下端に来たら
-        @px = 331
-      end
-
-      if @px < -100 #画面の左端に来たら
-        @px = -100
-      end
-
-      if @py < -180 #画面の上端に来たら
-       Map.move_to(:north_west)
-      end
-
-      Window.draw(0, 0, @bg_img)
       
-      Window.draw_scale(@px, @py, @player_img, 0.2, 0.2) 
+	  #キーボードの上下左右で移動
+	  @player.x  = @player.x+Input.x
+	  @player.y  = @player.y+Input.y
+
+	  if @player.x>=748 #画面の右端に来たら
+        @player.x =748
+      end
+      if @player.x <= 0#画面の左端に来たら
+        @player.x =0
+      end
+      if @player.y>=488 #画面の下端に来たら
+        @player.y = 488
+      end
+      if @player.y <= 0 #画面の上端に来たら
+       Map.move_to(:north_west)#マップ移動
+      end
+
+	  #point2にぶつかったら
+	  if @player === @point6
+	    exit#クイズへ
+	  end
+
+	  #背景描画
+      Window.draw(0, 0, @bg_img)
+
+	  #描画
+	  @point6.draw
+	  @player.draw
+
+	  
+	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#デバッグ用
     end
   end
 end
