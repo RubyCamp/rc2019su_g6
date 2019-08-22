@@ -36,8 +36,8 @@ module Miho
 		Scene.move_to(:north_east)
       elsif ((x<740 && x>600)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON))
         #戻った時の座標を指定
-		Scene.get(:north_east).player.x =350
-	    Scene.get(:north_east).player.y =100
+		Scene.get(:north_east).player.x =613
+	    Scene.get(:north_east).player.y =62
 		Scene.move_to(:north_east)
       end
 	end

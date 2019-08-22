@@ -56,8 +56,8 @@ module North_east
 	    Scene.move_to(:miho)#クイズへ
 	  end
 	  #@adatiにぶつかったら
-	  if @player === @adati
-	    exit#クイズへ
+	  if @player === @adati && Adati::Director.adati_fin == false
+	    Scene.move_to(:adati)#クイズへ
 	  end
 	  #@yomeにぶつかったら
 	  if @player === @yome
