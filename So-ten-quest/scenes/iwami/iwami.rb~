@@ -1,0 +1,42 @@
+module Iwami
+  class Director
+    @@iwami_fin = false
+
+    def initialize
+      #”wŒi‰æ‘œ“Ç‚İ‚İ
+	  @yome_img = Image.load("images/iwami.jpg")
+
+	  #‘I‘ğ
+	  @choice1 = Font.new(44)
+      @choice2 = Font.new(44)
+
+	  @clear = Font.new(44)
+      @question = Font.new(36)
+    end
+
+	def self.yome_fin
+	  @@iwami_fin
+	end
+
+    def play
+	  #”wŒi•`‰æ
+      Window.draw(0, 0, @yome_img)
+
+      Window.draw_font(100,450,"A,10”Ô–Ú",@choice1,color:[0,100,255])
+      Window.draw_font(600,450,"B,14”Ô–Ú",@choice2,color:[0,100,255])
+      Window.draw_font(150,100,"ÎŒ©‹âR‚Í“ú–{‚Ì¢ŠEˆâY‚Ì\n’†‚Å‰½”Ô–Ú‚É“o˜^‚³‚ê‚½?",@question,color:[0,0,255])
+      x = Input.mouse_pos_x
+      y = Input.mouse_pos_y
+
+      if ((x<240 && x>100)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON))#³‰ğ
+	#–ß‚Á‚½‚ÌÀ•W‚ğw’è       
+	Scene.get(:south_west).player.x =224
+	Scene.get(:south_west).player.y =219
+	Scene.move_to(:south_west)
+      elsif ((x<740 && x>600)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON))
+	@@iwami_fin = true
+		Scene.move_to(:south_west)
+      end
+	end
+  end
+end

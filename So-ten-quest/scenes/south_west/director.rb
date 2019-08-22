@@ -13,6 +13,13 @@ module South_west
 
 	  @font = Font.new(32) #デバッグ用
     end
+	def player
+		@player
+	end
+
+	def player=(arg)
+	@player = arg
+	end
 
     def play
 	  #キーボードの上下左右で移動
@@ -37,12 +44,12 @@ module South_west
 
 	  #衝突判定
 	  #@iwamiにぶつかったら+入ったか確認する変数(後で追加)が，～なら
-	  if @player === @iwami #&& ? == ～
-	    exit#クイズへ
+	  if @player === @iwami && Iwami::Director.iwami_fin == false
+	    Scene.move_to(:iwami)#クイズへ
 	  end
 	  #@aquasにぶつかったら+入ったか確認する変数(後で追加)が，～なら
-	  if @player === @aquas #&& ? == ～
-	    exit#クイズへ
+	  if @player === @aquas && Aquas::Director.aquas_fin  == false
+	    Scene.move_to(:aquas)#クイズへ
 	  end
 
 

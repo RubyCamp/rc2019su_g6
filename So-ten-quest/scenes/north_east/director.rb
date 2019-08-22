@@ -56,12 +56,12 @@ module North_east
 	    Scene.move_to(:miho)#クイズへ
 	  end
 	  #@adatiにぶつかったら
-	  if @player === @adati
-	    exit#クイズへ
+	  if @player === @adati && Adati::Director.adati_fin == false
+	    Scene.move_to(:adati)#クイズへ
 	  end
 	  #@yomeにぶつかったら
-	  if @player === @yome
-	    exit#クイズへ
+	  if @player === @yome && Yome::Director.yome_fin == false
+	    Scene.move_to(:yome)#クイズへ
 	  end
 
 
