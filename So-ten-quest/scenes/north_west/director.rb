@@ -15,6 +15,14 @@ module North_west
 	  @font = Font.new(32) #デバッグ用
     end
 
+	def player
+	  @player
+	end
+
+	def player=(arg)
+	 @player = arg
+	end
+
     def play
       
 	  #キーボードの上下左右で移動
@@ -37,8 +45,8 @@ module North_west
       end
 
 	  #@izummoにぶつかったら
-	  if @player === @izumo
-	    exit#クイズへ
+	  if @player === @izumo && Izumo::Director.izumo_fin == false
+	    Scene.move_to(:izumo)#クイズへ
 	  end
 
 	  #背景描画

@@ -16,6 +16,14 @@ module North_east
 	  @font = Font.new(32) #デバッグ用
     end
 
+	def player
+	  @player
+	end
+
+	def player=(arg)
+	 @player = arg
+	end
+
     def play
 	  
 	  #キーボードの上下左右で移動
@@ -40,12 +48,12 @@ module North_east
 
 	  #衝突判定
 	  #@matsueにぶつかったら
-	  if @player === @matsue
-	    exit#クイズへ
+	  if @player === @matsue && Matsue::Director.matsue_fin == false
+	    Scene.move_to(:matsue)#クイズへ
 	  end
 	  #@mihoにぶつかったら
-	  if @player === @miho
-	    exit#クイズへ
+	  if @player === @miho && Miho::Director.miho_fin == false
+	    Scene.move_to(:miho)#クイズへ
 	  end
 	  #@adatiにぶつかったら
 	  if @player === @adati
