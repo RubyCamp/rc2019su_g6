@@ -7,7 +7,7 @@ module Opening
 
         def play
             #タイトル画面表示
-			Window.draw_font(250, 270, "So-ten_Quest", @title)
+			Window.draw_font(250, 270, "しまねいず", @title)
             Window.draw_font(345, 340, "press SPACE to continue", @small_message, color:[255, 255, 0, 255])
 
 			#キー判定

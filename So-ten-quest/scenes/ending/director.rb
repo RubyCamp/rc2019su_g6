@@ -7,7 +7,7 @@ module Ending
 
     def play
       Window.draw_font(300,300,"おしまい",@font)
-      Window.draw_font(600,500,"spaceキーを押して終了",@font2)
+      Window.draw_font(530,500,"spaceキーを押して終了",@font2)
       if Input.key_push?(K_SPACE)
 	    exit
 	  end

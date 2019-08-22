@@ -1,19 +1,19 @@
 module North_east
   class Director
     def initialize
-      #”wŒi‰æ‘œ“Ç‚Ýž‚Ý
+      #ï¿½wï¿½iï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @bg_img = Image.load("images/shimane2.png")
 
-	  #player‰æ‘œ“Ç‚Ýž‚Ý
+	  #playerï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @player = Sprite.new(0,0,Image.load("images/man.png"))
 
-	  #ƒ}ƒbƒvã‚ÌƒAƒCƒRƒ““Ç‚Ýž‚Ý
+	  #ï¿½}ï¿½bï¿½vï¿½ï¿½ÌƒAï¿½Cï¿½Rï¿½ï¿½ï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @matsue = Sprite.new(350,287,Image.load("icons/matue_icon.png"))
 	  @miho = Sprite.new(680,100,Image.load("icons/miho_icon.png"))
 	  @adati = Sprite.new(680,480,Image.load("icons/monariza_icom.png"))
 	  @yome = Sprite.new(222,371,Image.load("icons/yome_icom.png"))
 
-	  @font = Font.new(32) #ƒfƒoƒbƒO—p
+	  @font = Font.new(32) #ï¿½fï¿½oï¿½bï¿½Oï¿½p
     end
 
 	def player
@@ -26,60 +26,60 @@ module North_east
 
     def play
 	  
-	  #ƒL[ƒ{[ƒh‚Ìã‰º¶‰E‚ÅˆÚ“®
+	  #ï¿½Lï¿½[ï¿½{ï¿½[ï¿½hï¿½Ìã‰ºï¿½ï¿½ï¿½Eï¿½ÅˆÚ“ï¿½
 	  @player.x  = @player.x+Input.x
 	  @player.y  = @player.y+Input.y
 
 
-	  #‰æ–Ê’[‚É—ˆ‚½Žž‚Ìˆ—
-	  if @player.x>748 #‰æ–Ê‚Ì‰E’[‚É—ˆ‚½‚ç
+	  #ï¿½ï¿½Ê’[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
+	  if @player.x>748 #ï¿½ï¿½Ê‚Ì‰Eï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         @player.x = 748
       end
-      if @player.x < 0#‰æ–Ê‚Ì¶’[‚É—ˆ‚½‚ç
-        Scene.move_to(:north_west)#ƒ}ƒbƒvˆÚ“®
+      if @player.x < 0#ï¿½ï¿½Ê‚Ìï¿½ï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
+        Scene.move_to(:north_west)#ï¿½}ï¿½bï¿½vï¿½Ú“ï¿½
       end
-      if @player.y>488 #‰æ–Ê‚Ì‰º’[‚É—ˆ‚½‚ç
+      if @player.y>488 #ï¿½ï¿½Ê‚Ì‰ï¿½ï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         @player.y = 488
       end
-      if @player.y < 0 #‰æ–Ê‚Ìã’[‚É—ˆ‚½‚ç
+      if @player.y < 0 #ï¿½ï¿½Ê‚Ìï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
        @player.y = 0
       end
 
 
-	  #Õ“Ë”»’è
-	  #@matsue‚É‚Ô‚Â‚©‚Á‚½‚ç
+	  #ï¿½Õ“Ë”ï¿½ï¿½ï¿½
+	  #@matsueï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  if @player === @matsue && Matsue::Director.matsue_fin == false
-	    Scene.move_to(:matsue)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:matsue)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
-	  #@miho‚É‚Ô‚Â‚©‚Á‚½‚ç
+	  #@mihoï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  if @player === @miho && Miho::Director.miho_fin == false
-	    Scene.move_to(:miho)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:miho)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
-	  #@adati‚É‚Ô‚Â‚©‚Á‚½‚ç
+	  #@adatiï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  if @player === @adati && Adati::Director.adati_fin == false
-	    Scene.move_to(:adati)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:adati)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
-	  #@yome‚É‚Ô‚Â‚©‚Á‚½‚ç
+	  #@yomeï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  if @player === @yome && Yome::Director.yome_fin == false
-	    Scene.move_to(:yome)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:yome)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
 
 
-	  #”wŒi•`‰æ
+	  #ï¿½wï¿½iï¿½`ï¿½ï¿½
       Window.draw(0, 0, @bg_img)
 
-	  #•`‰æ
+	  #ï¿½`ï¿½ï¿½
 	  @miho.draw
 	  @adati.draw
 	  @matsue.draw
 	  @yome.draw
 	  @player.draw
 
-	  #ƒfƒoƒbƒO—p
+	  #ï¿½fï¿½oï¿½bï¿½Oï¿½p
 	  if Input.key_push?(K_X) then
-        Scene.move_to(:oki) #‰BŠò‚ÖˆÚ“®
+        Scene.move_to(:oki) #ï¿½Bï¿½ï¿½ÖˆÚ“ï¿½
       end
-	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)
+	  #Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)
 	  Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
 
 	  Scene.final_move

@@ -30,9 +30,11 @@ module Adati
       y = Input.mouse_pos_y
 
       if ((x<240 && x>100)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON)) && (Scene.currency_ruby_plus_one) #正解
+        Scene.correct_sound.play
         @@adati_fin = true
 		Scene.move_to(:north_east)
       elsif ((x<740 && x>600)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON)) && (Scene.currency_ruby_stay) 
+        Scene.incorrect_sound.play
         #戻った時の座標を指定
 		Scene.get(:north_east).player.x =613
 	    Scene.get(:north_east).player.y =455

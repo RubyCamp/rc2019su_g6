@@ -1,17 +1,17 @@
 module South_west
   class Director
     def initialize
-      #”wŒi‰æ‘œ“Ç‚Ýž‚Ý
+      #ï¿½wï¿½iï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @bg_img = Image.load("images/shimane3.png")
 
-	  #player‰æ‘œ“Ç‚Ýž‚Ý
+	  #playerï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @player = Sprite.new(0,0,Image.load("images/man.png"))
 
-	  #ƒ}ƒbƒvã‚ÌƒAƒCƒRƒ““Ç‚Ýž‚Ý
+	  #ï¿½}ï¿½bï¿½vï¿½ï¿½ÌƒAï¿½Cï¿½Rï¿½ï¿½ï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @iwami = Sprite.new(245,39,Image.load("icons/iwami_icon.png"))
 	  @aquas = Sprite.new(100,100,Image.load("icons/shark_icon.png"))
 
-	  @font = Font.new(32) #ƒfƒoƒbƒO—p
+	  @font = Font.new(32) #ï¿½fï¿½oï¿½bï¿½Oï¿½p
     end
 	def player
 		@player
@@ -30,47 +30,48 @@ module South_west
 	end
 
     def play
-	  #ƒL[ƒ{[ƒh‚Ìã‰º¶‰E‚ÅˆÚ“®
+	  #ï¿½Lï¿½[ï¿½{ï¿½[ï¿½hï¿½Ìã‰ºï¿½ï¿½ï¿½Eï¿½ÅˆÚ“ï¿½
 	  @player.x  = @player.x+Input.x
 	  @player.y  = @player.y+Input.y
 
 
-	  #‰æ–Ê’[‚É—ˆ‚½Žž‚Ìˆ—
-	  if @player.x>=748 #‰æ–Ê‚Ì‰E’[‚É—ˆ‚½‚ç
+	  #ï¿½ï¿½Ê’[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
+	  if @player.x>=748 #ï¿½ï¿½Ê‚Ì‰Eï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         @player.x =748
       	  end
-      if @player.x <= 0#‰æ–Ê‚Ì¶’[‚É—ˆ‚½‚ç
+      if @player.x <= 0#ï¿½ï¿½Ê‚Ìï¿½ï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         @player.x =0
       end
-      if @player.y>=488 #‰æ–Ê‚Ì‰º’[‚É—ˆ‚½‚ç
+      if @player.y>=488 #ï¿½ï¿½Ê‚Ì‰ï¿½ï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         @player.y = 488
       end
-      if @player.y <= 0 #‰æ–Ê‚Ìã’[‚É—ˆ‚½‚ç
-       Scene.move_to(:north_west)#ƒ}ƒbƒvˆÚ“®
+      if @player.y <= 0 #ï¿½ï¿½Ê‚Ìï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
+       Scene.move_to(:north_west)#ï¿½}ï¿½bï¿½vï¿½Ú“ï¿½
       end
 
 
-	  #Õ“Ë”»’è
-	  #@iwami‚É‚Ô‚Â‚©‚Á‚½‚ç+“ü‚Á‚½‚©Šm”F‚·‚é•Ï”(Œã‚Å’Ç‰Á)‚ªC`‚È‚ç
+	  #ï¿½Õ“Ë”ï¿½ï¿½ï¿½
+	  #@iwamiï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½Ïï¿½(ï¿½ï¿½Å’Ç‰ï¿½)ï¿½ï¿½ï¿½Cï¿½`ï¿½È‚ï¿½
 	  if @player === @iwami && Iwami::Director.iwami_fin == false
-	    Scene.move_to(:iwami)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:iwami)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
-	  #@aquas‚É‚Ô‚Â‚©‚Á‚½‚ç
+	  #@aquasï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  if @player === @aquas && Aquas::Director.aquas_fin == false
-	    Scene.move_to(:aquas)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:aquas)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
 
 
-	  #”wŒi•`‰æ
+	  #ï¿½wï¿½iï¿½`ï¿½ï¿½
       Window.draw(0, 0, @bg_img)
 
-	  #ƒ}ƒbƒvã‚Ì‚à‚Ì‚ð•`‰æ
+	  #ï¿½}ï¿½bï¿½vï¿½ï¿½Ì‚ï¿½ï¿½Ì‚ï¿½`ï¿½ï¿½
 	  @iwami.draw
 	  @aquas.draw
 	  @player.draw
 
 	  
-	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#ƒfƒoƒbƒO—p
+	  #Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)
+	  #ï¿½fï¿½oï¿½bï¿½Oï¿½p
 	  Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
 
 	  Scene.final_move

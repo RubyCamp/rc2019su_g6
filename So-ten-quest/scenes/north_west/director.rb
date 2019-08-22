@@ -1,18 +1,18 @@
 module North_west
   class Director
     def initialize
-      #”wŒi‰æ‘œ“Ç‚Ýž‚Ý
+      #ï¿½wï¿½iï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @bg_img = Image.load("images/shimane1.png")
-	  #ƒXƒ^[ƒg’n“_‚Ìƒ}ƒbƒvãƒAƒCƒRƒ““Ç‚Ýž‚Ý
+	  #ï¿½Xï¿½^ï¿½[ï¿½gï¿½nï¿½_ï¿½Ìƒ}ï¿½bï¿½vï¿½ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @home_img =  Image.load("icons/home_icon.png")
 
-	  #player‰æ‘œ“Ç‚Ýž‚Ý
+	  #playerï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½ï¿½
       @player = Sprite.new(682,162,Image.load("images/man.png"))
 
-	  #ƒ}ƒbƒvã‚ÌƒAƒCƒRƒ““Ç‚Ýž‚Ý
+	  #ï¿½}ï¿½bï¿½vï¿½ï¿½ÌƒAï¿½Cï¿½Rï¿½ï¿½ï¿½Ç‚Ýï¿½ï¿½ï¿½
 	  @izumo = Sprite.new(473,293,Image.load("icons/izumo_icon.png"))
 
-	  @font = Font.new(32) #ƒfƒoƒbƒO—p
+	  @font = Font.new(32) #ï¿½fï¿½oï¿½bï¿½Oï¿½p
     end
 
 	def player
@@ -25,42 +25,43 @@ module North_west
 
     def play
       
-	  #ƒL[ƒ{[ƒh‚Ìã‰º¶‰E‚ÅˆÚ“®
+	  #ï¿½Lï¿½[ï¿½{ï¿½[ï¿½hï¿½Ìã‰ºï¿½ï¿½ï¿½Eï¿½ÅˆÚ“ï¿½
 	  @player.x  = @player.x+Input.x
 	  @player.y  = @player.y+Input.y
 
 
-	  #‰æ–Ê’[‚É—ˆ‚½Žž‚Ìˆ—
-	  if @player.x>748 #‰æ–Ê‚Ì‰E’[‚É—ˆ‚½‚ç
-        Scene.move_to(:north_east)#ƒ}ƒbƒvˆÚ“®
+	  #ï¿½ï¿½Ê’[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
+	  if @player.x>748 #ï¿½ï¿½Ê‚Ì‰Eï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
+        Scene.move_to(:north_east)#ï¿½}ï¿½bï¿½vï¿½Ú“ï¿½
       end
-      if @player.x < 0#‰æ–Ê‚Ì¶’[‚É—ˆ‚½‚ç
+      if @player.x < 0#ï¿½ï¿½Ê‚Ìï¿½ï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         @player.x = 0
       end
-      if @player.y>488 #‰æ–Ê‚Ì‰º’[‚É—ˆ‚½‚ç
+      if @player.y>488 #ï¿½ï¿½Ê‚Ì‰ï¿½ï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
         Scene.move_to(:south_west)
       end
-      if @player.y < 0 #‰æ–Ê‚Ìã’[‚É—ˆ‚½‚ç
+      if @player.y < 0 #ï¿½ï¿½Ê‚Ìï¿½[ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½
        @player.y = 0
       end
 
-	  #@izummo‚É‚Ô‚Â‚©‚Á‚½‚ç
+	  #@izummoï¿½É‚Ô‚Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  if @player === @izumo && Izumo::Director.izumo_fin == false
-	    Scene.move_to(:izumo)#ƒNƒCƒY‚Ö
+	    Scene.move_to(:izumo)#ï¿½Nï¿½Cï¿½Yï¿½ï¿½
 	  end
 
-	  #”wŒi•`‰æ
+	  #ï¿½wï¿½iï¿½`ï¿½ï¿½
       Window.draw(0, 0, @bg_img)
 
-	  #•`‰æ
-	   Window.draw(682, 220, @home_img)#Õ“Ë”»’è‚È‚µ
+	  #ï¿½`ï¿½ï¿½
+	   Window.draw(682, 220, @home_img)#ï¿½Õ“Ë”ï¿½ï¿½ï¿½È‚ï¿½
 
 	  @izumo.draw
 	  @player.draw
 
 	  Scene.final_move
 
-	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#ƒfƒoƒbƒO—p
+	  #Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)
+	  #ï¿½fï¿½oï¿½bï¿½Oï¿½p
 	  Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
       
     end

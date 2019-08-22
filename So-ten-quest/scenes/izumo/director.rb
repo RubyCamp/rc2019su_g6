@@ -11,14 +11,12 @@
       @choice2 = Font.new(44)
 
 	  @clear = Font.new(44)
-      @question = Font.new(36)
+      @question = Font.new(32)
     end
 
 	def self.izumo_fin
 	  @@izumo_fin
 	end
-
-
 
     def play
 	  #背景描画
@@ -32,10 +30,14 @@
       y = Input.mouse_pos_y
 
       if ((x<240 && x>100)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON)) && (Scene.currency_ruby_plus_one) #正解
-        @@izumo_fin = true
+        #正解
+		Scene.correct_sound.play
+		@@izumo_fin = true
 		Scene.move_to(:north_west)
       elsif ((x<740 && x>600)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON)) && (Scene.currency_ruby_stay) 
-        Scene.get(:north_west).player.x = 550#戻った時のx座標を指定
+        #不正解
+		Scene.incorrect_sound.play
+		Scene.get(:north_west).player.x = 550#戻った時のx座標を指定
 		Scene.move_to(:north_west)
       end
 	end
