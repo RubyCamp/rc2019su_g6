@@ -26,7 +26,7 @@ module Izumo
 
 	  Window.draw_font(100,400,"A,10月",@choice1,color:[255,120,0])
       Window.draw_font(600,400,"B,11月",@choice2,color:[255,120,0])
-      Window.draw_font(10,200,"全国から神様が出雲大社へ集まる「神無月」とは何月？",@question,color:[255,0,0])
+      Window.draw_font(10,200,"全国から神様が出雲大社へ集まる「神在月」とは何月？",@question,color:[255,0,0])
 
       x = Input.mouse_pos_x
       y = Input.mouse_pos_y
