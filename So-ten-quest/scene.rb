@@ -8,7 +8,7 @@ class Scene
   def self.add(scene_obj, scene_name)
     @@scenes[scene_name.to_sym] = scene_obj
   end
-
+  #director間での値の受け渡しの設定
   def self.get(scene_name)
     @@scenes[scene_name.to_sym]
   end
@@ -16,8 +16,6 @@ class Scene
   def self.move_to(scene_name)
     @@current_scene_name = scene_name.to_sym
   end
-
-
   def self.play
     @@scenes[@@current_scene_name].play
   end

@@ -21,6 +21,14 @@ module South_west
 	@player = arg
 	end
 
+	def player
+	  @player
+	end
+
+	def player=(arg)
+	 @player = arg
+	end
+
     def play
 	  #キーボードの上下左右で移動
 	  @player.x  = @player.x+Input.x
@@ -30,7 +38,7 @@ module South_west
 	  #画面端に来た時の処理
 	  if @player.x>=748 #画面の右端に来たら
         @player.x =748
-      end
+      	  end
       if @player.x <= 0#画面の左端に来たら
         @player.x =0
       end
@@ -47,8 +55,8 @@ module South_west
 	  if @player === @iwami && Iwami::Director.iwami_fin == false
 	    Scene.move_to(:iwami)#クイズへ
 	  end
-	  #@aquasにぶつかったら+入ったか確認する変数(後で追加)が，～なら
-	  if @player === @aquas && Aquas::Director.aquas_fin  == false
+	  #@aquasにぶつかったら
+	  if @player === @aquas && Aquas::Director.aquas_fin == false
 	    Scene.move_to(:aquas)#クイズへ
 	  end
 
