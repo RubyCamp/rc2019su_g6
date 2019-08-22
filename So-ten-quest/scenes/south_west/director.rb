@@ -71,6 +71,10 @@ module South_west
 
 	  
 	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#デバッグ用
+	  Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
+
+	  Scene.final_move
+
     end
   end
 end

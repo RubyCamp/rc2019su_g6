@@ -4,11 +4,14 @@ module Oki
           @bg_image = Image.load('images/shimane4.png')
           @player = Image.load('images/man.png')
           #@time_count = 250
+          @font = Font.new(32)
        end
        
        def play
             Window.draw(0, 0, @bg_image)
             Window.draw(520, 70, @player)
+
+            Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
             
 			#デバッグ用
 			if Input.key_push?(K_X) then

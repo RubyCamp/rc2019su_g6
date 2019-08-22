@@ -29,12 +29,12 @@ module Aquas
       x = Input.mouse_pos_x
       y = Input.mouse_pos_y
 
-      if ((x<240 && x>100)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON))
+      if ((x<240 && x>100)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON)) && (Scene.currency_ruby_stay) 
         #戻った時の座標を指定
 		Scene.get(:south_west).player.x =100
 	    Scene.get(:south_west).player.y =200
 		Scene.move_to(:south_west)
-      elsif ((x<740 && x>600)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON))#正解
+      elsif ((x<740 && x>600)&&(y<540 && y>400)) && (Input.mouse_down?(M_LBUTTON)) && (Scene.currency_ruby_plus_one) #正解
         @@aquas_fin = true
 		Scene.move_to(:south_west)
       end

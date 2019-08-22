@@ -58,8 +58,10 @@ module North_west
 	  @izumo.draw
 	  @player.draw
 
-	  
+	  Scene.final_move
+
 	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)#デバッグ用
+	  Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
       
     end
   end

@@ -80,6 +80,9 @@ module North_east
         Scene.move_to(:oki) #‰BŠò‚ÖˆÚ“®
       end
 	  Window.draw_font(10, 10, "px = #{@player.x} py = #{@player.y}", @font)
+	  Window.draw_font(690, 10, "Ruby: #{Scene.currency_ruby}", @font)
+
+	  Scene.final_move
 
 
     end
